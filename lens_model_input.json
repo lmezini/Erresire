@@ -1,0 +1,17 @@
+{
+    "z_min": 0.0,
+    "z_max": 3.0,
+    "gal_halo_mass_min": 11.95,
+    "gal_halo_mass_max": 15.0,
+    "halo_type": "NFW_ELLIPSE_POTENTIAL",
+    "halo_data_file": "mini_halo_cat.csv",
+    "galaxy_type": [
+        "SERSIC_ELLIPSE_POTENTIAL",
+        "SERSIC_ELLIPSE_POTENTIAL"
+    ],
+    "galaxy_function": "sersic_ellipse_double_potential",
+    "source_type": "quasar",
+    "lens_catalog": "mini_gal_cat.csv",
+    "source_catalog": "mini_source_cat.csv",
+    "shear": true
+}
