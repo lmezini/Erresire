@@ -13,7 +13,8 @@ class CreateLensModel:
         Create kwargs used as input for lenstronomy for each lens component
         """
 
-    def NFW_ELLIPSE_create_kwargs(self, LC, properties):
+    @staticmethod
+    def nfw_ellipse_create_kwargs(LC, properties, x, y):
         """
         Create all necessary arguments needed as input for lenstronomy halos
         Need Rs and alpha Rs in arcsecs!
@@ -60,28 +61,15 @@ class CreateLensModel:
             "alpha_Rs": alpha_Rs,
             "e1": e1,
             "e2": e2,
+            "center_x": x,
+            "center_y": y
         }
 
         return halo_kwargs
-
-    def shear_create_kwargs(self, gamma1, gamma2):
-        """
-        create dictionary of arguments used as input for lenstronomy
-
-        Args:
-            gamma1 (float): shear value
-            gamma2 (float): shear value
-
-        Returns:
-            dictionary: dictionary of shear arguments to be used for lenstronomy
-        """
-
-        shear_kwargs = {"gamma1": gamma1, "gamma2": gamma2}
-
-        return shear_kwargs
+    
 
     @staticmethod
-    def sersic_ellipse_double_potential_create_kwargs(
+    def sersic_ellipse_sphere_create_kwargs(
         properties,
         LC,
         x=0.0,
@@ -100,8 +88,9 @@ class CreateLensModel:
             dict: kwargs for lenstronomy lensmodel
         """
 
-        R_sersic_ang = LC.phys2arcsec_lens(
-            properties['sphere_half_light_radius'].values[0])  # Mpc to arcsec at z_lens
+        # R_sersic_ang = LC.phys2arcsec_lens(
+        #    properties['sphere_half_light_radius'].values[0])  # Mpc to arcsec at z_lens
+        R_sersic_ang = properties['sphere_half_light_radius_arcsec'].values[0]
 
         k_eff = LC.sersic_m_star2k_eff(
             m_star=properties['sphere_mass_stellar'].values[0], R_sersic=R_sersic_ang, n_sersic=properties['sphere_sersic_index'].values[0]
@@ -111,7 +100,7 @@ class CreateLensModel:
             phi=properties['position_angle'].values[0],
             q=properties['sphere_axis_ratio'].values[0])
 
-        kwargs_sersic_sphere = {
+        kwargs = {
             "k_eff": k_eff,
             "R_sersic": R_sersic_ang,
             "n_sersic": properties['sphere_sersic_index'].values[0],
@@ -121,8 +110,31 @@ class CreateLensModel:
             "e2": e2,
         }
 
-        R_sersic_ang = LC.phys2arcsec_lens(
-            properties['disk_half_light_radius'].values[0])  # Mpc to arcsec at z_lens
+        return kwargs
+
+    @staticmethod
+    def sersic_ellipse_disk_create_kwargs(
+        properties,
+        LC,
+        x=0.0,
+        y=0.0,
+    ):
+        """
+        Create kwarg dictionary for lenstronomy lensmodel
+        sersic mass profile
+
+        Args:
+            properties (pandas dataframe):
+            LC (object): lens cosmo from lenstronomy
+            x,y (float): galaxy coordinates
+
+        Returns:
+            dict: kwargs for lenstronomy lensmodel
+        """
+
+        # R_sersic_ang = LC.phys2arcsec_lens(
+        #    properties['disk_half_light_radius'].values[0])  # Mpc to arcsec at z_lens
+        R_sersic_ang = properties['disk_half_light_radius_arcsec'].values[0]
 
         k_eff = LC.sersic_m_star2k_eff(
             m_star=properties['disk_mass_stellar'].values[0],
@@ -133,7 +145,7 @@ class CreateLensModel:
             phi=properties['position_angle'].values[0],
             q=properties['disk_axis_ratio'].values[0])
 
-        kwargs_sersic_disk = {
+        kwargs = {
             "k_eff": k_eff,
             "R_sersic": R_sersic_ang,
             "n_sersic": properties['disk_sersic_index'].values[0],
@@ -142,10 +154,11 @@ class CreateLensModel:
             "e1": e1,
             "e2": e2,
         }
-        
-        return [kwargs_sersic_sphere, kwargs_sersic_disk]
 
-    def create_custom_deflections(self, LC, alphas, bin_width, ks=3, s=0.2):
+        return kwargs
+
+    @staticmethod
+    def create_custom_deflections(LC, alphas, bin_width, ks=3, s=0.2):
         """
         Return custom deflection class using pre-tabulated deflections for halo.
         Need to normalize by critical surface density and convert bin width to arcsecs.
