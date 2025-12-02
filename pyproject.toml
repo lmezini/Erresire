@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "erresire"
+version = "0.1.0"
+description = "Simulate large populations of strong gravitational lenses (Monte Carlo‑based)."
+readme = "README.md"
+license = { text = "MIT" }             # or whichever license you choose
+authors = [
+  { name = "Lorena Mezini", email = "lormezini@gmail.com" }
+]
+requires-python = ">=3.8"
+dependencies = [
+  "numpy",
+  "pandas",
+  "lenstronomy",
+  "shapely",
+  "colossus",
+  "sklearn",
+  "astropy",
+]
+
+[project.urls]
+Repository = "https://github.com/lmezini/Erresire"
+Homepage = "https://github.com/lmezini/Erresire"
+
+[tool.setuptools.packages.find]
+where = ["erresire"]
