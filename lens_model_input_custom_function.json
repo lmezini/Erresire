@@ -1,0 +1,28 @@
+{
+    "z_min": 0.0,
+    "z_max": 3.0,
+    "gal_halo_mass_min": 11.95,
+    "gal_halo_mass_max": 15.0,
+    "database_name": "full_model.db",
+    "log_file_name": "full_model_log_file_1.txt",
+    "halo_type": [
+        "NFW_ELLIPSE_POTENTIAL"
+    ],
+    "halo_function": [
+        "CUSTOM_HALO"
+    ],
+    "halo_data_file": "../all_mass_halo_cat_09_05_with_c_intrinsic_corrected_nov_20.pkl",
+    "galaxy_type": [
+        "SERSIC_ELLIPSE_POTENTIAL",
+        "SERSIC_ELLIPSE_POTENTIAL"
+    ],
+    "galaxy_function": [
+        "sersic_ellipse_disk",
+        "sersic_ellipse_sphere"
+    ],
+    "source_type": "quasar",
+    "galaxy_catalog": "mini_gal_cat.csv",
+    "halo_catalog": "mini_halo_cat.csv",
+    "source_catalog": "../practice/mini_source_cat.csv",
+    "shear": true
+}
