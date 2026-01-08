@@ -1,3 +1,23 @@
+Metadata-Version: 2.4
+Name: erresire
+Version: 0.1.1
+Summary: Simulate large populations of strong gravitational lenses (Monte Carlo‑based).
+Author-email: Lorena Mezini <lormezini@gmail.com>
+License: MIT
+Project-URL: Repository, https://github.com/lmezini/Erresire
+Project-URL: Homepage, https://github.com/lmezini/Erresire
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: lenstronomy
+Requires-Dist: shapely
+Requires-Dist: colossus
+Requires-Dist: scikit-learn
+Requires-Dist: astropy
+Dynamic: license-file
+
 <img width="403" height="150" alt="Erresire(2)" src="https://github.com/user-attachments/assets/17e22142-ca63-483d-b113-b656f44d3934" />
 
 
@@ -23,13 +43,4 @@ This notebook illustrates how to use the core Erresire functions and shows how t
 
 Also within this directory are mini catalogs of galaxy, halo, and source properties. These small datasets allow you to quickly run the example notebook and explore the functionality of Erresire without needing large external files.
 
-Galaxy data comes from the ComsoDC2 Synthetic Sky Catalog (https://iopscience.iop.org/article/10.3847/1538-4365/ab510c/pdf) and source data from the Quaia Gaia-unWISE Quasar Catalog (https://iopscience.iop.org/article/10.3847/1538-4357/ad1328/meta).
-Creation of the halo data catalog is discussed in Mezini 2025 using particle data from the Symphony Simulation suite.
-
-### IMPORTANT: Catalog Configuration
-
-In **schema.md** we discuss the columns contained within the mock lens catalog and halo catalog.
-For more information on the source and galaxy catalogs used to create the Erresire catalog, we recommend consulting the external resources linked above for each dataset.
-
-To ensure compatibility with lenstronomy and to support reliable cross-matching between galaxies and their associated dark matter halos, all input data catalogs must follow specific configuration requirements.
-These requirements are outlined in **input_data_configuration.md**, where we provide a detailed description of the necessary fields and formatting.
+Galaxy data comes from the ComsoDC2 survey and source data from the Qauia UnWISE survey. Creation of the halo data catalog is discussed in Mezini 2025 using particle data from the Symphony Simulation suite.

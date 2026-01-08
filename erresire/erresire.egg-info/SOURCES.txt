@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+erresire/erresire.egg-info/PKG-INFO
+erresire/erresire.egg-info/SOURCES.txt
+erresire/erresire.egg-info/dependency_links.txt
+erresire/erresire.egg-info/requires.txt
+erresire/erresire.egg-info/top_level.txt
