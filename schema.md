@@ -6,7 +6,8 @@
 |--------------------|---------|------------|
 | `id`               | `int`   | Index of the lens system modeled |
 | `s_id`             | `int`   | Index of the source from the source catalog |
-| `cat_id`           | `int`   | Index of the halo from the completed halo mass catalog |
+| `g_id`             | `int`   | Index of the galaxy from the galaxy catalog |
+| `h_id`             | `int`   | Index of the halo from the completed halo mass catalog |
 | `projection_id`    | `int`   | Index identifying the halo projection used |
 | `flag`             | `int`   | Lens flag (`0` = no images, `1` = images detected) |
 | `z_source`         | `float` | Redshift of the source |
@@ -60,8 +61,8 @@
 
 | Attribute name   | Type    | Definition |
 |------------------|---------|------------|
-| `cat_id`         | `int`   | ID of object in halo catalog |
-| `h_id`           | `int`   | Index of the halo in the symphony simulation data |
+| `h_id`           | `int`   | ID of object in halo catalog |
+| `cat_id`         | `int`   | Index of the halo in the symphony simulation data |
 | `rs`             | `float` | Scale radius of the halo (Mpc) |
 | `rho`            | `float` | 2D NFW normalization |
 | `c`              | `float` | Concentration measured from 2D projected profile |
