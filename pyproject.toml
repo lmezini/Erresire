@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "erresire"
-version = "0.1.1"
+version = "0.1.2"
 description = "Simulate large populations of strong gravitational lenses (Monte Carlo‑based)."
 readme = "README.md"
 license = { text = "MIT" }
