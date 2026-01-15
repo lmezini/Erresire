@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "erresire"
-version = "0.1.2"
+version = "0.1.3"
 description = "Simulate large populations of strong gravitational lenses (Monte Carlo‑based)."
 readme = "README.md"
 license = { text = "MIT" }
@@ -27,4 +27,4 @@ Repository = "https://github.com/lmezini/Erresire"
 Homepage = "https://github.com/lmezini/Erresire"
 
 [tool.setuptools.packages.find]
-where = ["erresire"]
+include = ["erresire*"]
