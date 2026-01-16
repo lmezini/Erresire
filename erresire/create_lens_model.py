@@ -1,7 +1,7 @@
 import numpy as np
 from astropy.io import ascii
 import lenstronomy.Util.param_util as param_util
-from CustomLensModel import create_custom_angular_deflection
+from .CustomLensModel import create_custom_angular_deflection
 from time import time
 from astropy import units as u
 from astropy.constants import G, c

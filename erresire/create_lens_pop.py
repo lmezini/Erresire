@@ -4,7 +4,7 @@ import pandas as pd
 from lenstronomy.LensModel.lens_model import LensModel
 
 import lens_model_extra_methods
-from create_lens_model import CreateLensModel
+from .create_lens_model import CreateLensModel
 from lenstronomy.Cosmo.lens_cosmo import LensCosmo
 
 from lenstronomy.LensModel.lens_model_extensions import LensModelExtensions

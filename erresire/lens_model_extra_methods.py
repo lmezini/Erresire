@@ -1,5 +1,5 @@
 import numpy as np
-from create_lens_model import CreateLensModel
+from .create_lens_model import CreateLensModel
 from sklearn.cluster import DBSCAN
 from shapely.geometry import Polygon
 import warnings
@@ -9,7 +9,6 @@ from colossus.lss import mass_function
 from colossus.cosmology import cosmology
 import warnings
 from scipy.interpolate import interp1d
-cosmology.setCosmology('planck18')
 
 
 def get_caustic_area(ra, dec):
@@ -345,6 +344,8 @@ def compute_hmf_weights(catalog, mass_key='mass', redshift_key='redshift',
     weights : np.ndarray
         HMF-based weight for each galaxy in the catalog.
     """
+    cosmology.setCosmology('planck18')
+
     df = catalog.copy()
 
     # Mass bins
